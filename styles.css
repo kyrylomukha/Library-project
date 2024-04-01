@@ -42,12 +42,15 @@ button:hover {
 .library {
  display: grid;
  grid-template-columns: repeat(3,1fr);
+ gap: 20px;
 }
 
 .card {
- background-color: black;
+ background-color: rgb(255, 255, 255);
+ border: 2px solid black;
+ border-radius: 10px;
  height: 200px;
-
+ padding: 20px;
 }
 
 ::backdrop {
@@ -105,4 +108,31 @@ label {
 .white-button:hover {
   background-color: black;
   color: white;
+}
+
+.bookRead {
+  background-color: green;
+  color: white;
+  border: 0px;
+  margin-right: 10px;
+}
+
+.bookRead:hover {
+  background-color:rgb(48, 159, 48);
+  border: 0px;
+}
+
+.close {
+  background-color: transparent;
+  border: 0px;
+  color: rgb(85, 85, 85);
+  height: auto;
+  width: 20px;
+  padding: 0px;
+  font-size: 30px;
+}
+
+.close:hover {
+  color: black;
+  border: 0px;
 }
