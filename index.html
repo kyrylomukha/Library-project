@@ -16,24 +16,24 @@
         <fieldset>
           <legend>Add new book</legend>
           <div class="form-row">
-            <label for="book_title">Title</label>
-            <input type="text" id="book_title" name="book_title">
+            <label for="bookTitle" required>Title</label>
+            <input type="text" id="bookTitle" name="bookTitle">
           </div>
           <div class="form-row">
-            <label for="book_author">Author</label>
-            <input type="text" id="book_author" name="book_author">
+            <label for="bookAuthor" required>Author</label>
+            <input type="text" id="bookAuthor" name="bookAuthor">
           </div>
           <div class="form-row">
-            <label for="book_pages">Pages</label>
-            <input type="number" id="book_pages" name="book_pages">
+            <label for="bookPages" required>Pages</label>
+            <input type="number" id="bookPages" name="bookPages">
           </div>
         </fieldset>
       <div class="form-checkbox">
-        <label for="read">Did you read this book?</label>
-        <input type="checkbox" id="read" name="read">
+        <label for="isRead">Did you read this book?</label>
+        <input type="checkbox" id="isRead" name="isRead">
       </div>
-      <button type="submit">Submit</button>
-      <button class="white-button">Close</button>
+      <button id="confirm-button">Confirm</button>
+      <button class="white-button" id="close-button">Close</button>
       </form>
     </dialog>
   </section>
