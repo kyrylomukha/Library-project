@@ -54,7 +54,7 @@ function createBookCard() {
   const cardAuthorName = document.createElement("p");
   const cardPages = document.createElement("p");
   const deleteCardButton = document.createElement("button");
-  bookRead = document.createElement("button");
+  const bookRead = document.createElement("button");
 
   card.classList.add("card");
   bookRead.classList.add("bookRead");
@@ -86,6 +86,16 @@ function createBookCard() {
   bookRead.addEventListener("click", () => {
     const parent = bookRead.parentNode;
     let parentNumber = parent.dataset.number;
+
+    if(bookRead.textContent == "Read") {
+      bookRead.textContent = "Unread";
+      bookRead.style.backgroundColor = "red";
+      myLibrary[parentNumber].read = false;
+    } else {
+      bookRead.textContent = "Read";
+      bookRead.style.backgroundColor = "green";
+      myLibrary[parentNumber].read = true;
+    }
   });
   
   deleteCardButton.addEventListener("click", () => {
