@@ -1,7 +1,7 @@
 const newBook = document.querySelector("#newBook");
 const dialog = document.querySelector(".dialog");
 const closeDialog = document.querySelector("#close-button");
-const confirmBtn = document.querySelector("#confirm-button");
+const confirmDialog = document.querySelector("#confirm-button");
 const libraryWindow = document.querySelector(".library");
 
 const myLibrary = [];
@@ -12,20 +12,20 @@ newBook.addEventListener("click", () => {
 
 closeDialog.addEventListener("click", () => {
   dialog.close();
-})
+});
 
-confirmBtn.addEventListener("click",(event) => {
+confirmDialog.addEventListener("click", (event) => {
   event.preventDefault();
   handleConfirm();
   dialog.close();
-})
+});
 
 function Book(title, author, pages, read) {
-  this.title = title,
-  this.author = author,
-  this.pages = pages,
-  this.read = read
-};
+  (this.title = title),
+    (this.author = author),
+    (this.pages = pages),
+    (this.read = read);
+}
 
 function handleConfirm() {
   const titleValue = document.querySelector("#bookTitle").value;
@@ -34,13 +34,13 @@ function handleConfirm() {
   const readValue = document.querySelector("#isRead").checked;
 
   let isRead;
-  if(readValue) {
+  if (readValue) {
     isRead = true;
   } else {
     isRead = false;
   }
-  
-  const book = new Book(titleValue,authorValue,pagesValue,isRead);
+
+  const book = new Book(titleValue, authorValue, pagesValue, isRead);
   myLibrary.push(book);
   createBookCard();
 }
@@ -48,56 +48,57 @@ function handleConfirm() {
 let booksInArray = 0;
 
 function createBookCard() {
-
   const card = document.createElement("div");
   const cardHeader = document.createElement("h2");
   const cardAuthorName = document.createElement("p");
-  const cardPages = document.createElement("p");
+  const cardPagesNumber = document.createElement("p");
   const deleteCardButton = document.createElement("button");
-  const bookRead = document.createElement("button");
+  const bookReadButton = document.createElement("button");
 
   card.classList.add("card");
-  bookRead.classList.add("bookRead");
+  bookReadButton.classList.add("bookRead");
   deleteCardButton.classList.add("delete");
 
   deleteCardButton.textContent = "Delete";
-  
-  cardHeader.textContent = myLibrary[booksInArray].title;
-  cardAuthorName.textContent = "Written by" + " " + myLibrary[booksInArray].author;
-  cardPages.textContent = myLibrary[booksInArray].pages + " " + "pages";
 
-  if(myLibrary[booksInArray].read == true) {
-    bookRead.textContent = "Read";
+  cardHeader.textContent = myLibrary[booksInArray].title;
+  cardAuthorName.textContent =
+    "Written by" + " " + myLibrary[booksInArray].author;
+  cardPagesNumber.textContent = myLibrary[booksInArray].pages + " " + "pages";
+
+  if (myLibrary[booksInArray].read == true) {
+    bookReadButton.textContent = "Read";
   } else {
-    bookRead.textContent = "Unread";
-    bookRead.style.backgroundColor = "rgb(255, 70, 70)";
+    bookReadButton.textContent = "Unread";
+    bookReadButton.style.backgroundColor = "rgb(255, 70, 70)";
   }
 
   card.appendChild(cardHeader);
   card.appendChild(cardAuthorName);
-  card.appendChild(cardPages);
-  card.appendChild(bookRead);
+  card.appendChild(cardPagesNumber);
+  card.appendChild(bookReadButton);
   card.appendChild(deleteCardButton);
   libraryWindow.appendChild(card);
 
   card.setAttribute("data-number", booksInArray);
   booksInArray++;
 
-  bookRead.addEventListener("click", () => {
-    const parent = bookRead.parentNode;
+  bookReadButton.addEventListener("click", () => {
+    let button = bookReadButton;
+    const parent = button.parentNode;
     let parentNumber = parent.dataset.number;
 
-    if(bookRead.textContent == "Read") {
-      bookRead.textContent = "Unread";
-      bookRead.style.backgroundColor = "rgb(255, 70, 70)";
+    if (button.textContent == "Read") {
+      button.textContent = "Unread";
+      button.style.backgroundColor = "rgb(255, 70, 70)";
       myLibrary[parentNumber].read = false;
     } else {
-      bookRead.textContent = "Read";
-      bookRead.style.backgroundColor = "rgb(42, 161, 42)";
+      button.textContent = "Read";
+      button.style.backgroundColor = "rgb(42, 161, 42)";
       myLibrary[parentNumber].read = true;
     }
   });
-  
+
   deleteCardButton.addEventListener("click", () => {
     const parent = deleteCardButton.parentNode;
     let parentNumber = parent.dataset.number;
@@ -110,11 +111,10 @@ function createBookCard() {
 
   function updateDataNums(num) {
     let cards = document.querySelectorAll(".card");
-    for(let card of cards) {
-      if(card.dataset.number > num) {
+    for (let card of cards) {
+      if (card.dataset.number > num) {
         card.dataset.number--;
       }
     }
   }
-
 }
