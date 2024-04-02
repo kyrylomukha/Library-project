@@ -70,7 +70,7 @@ function createBookCard() {
     bookRead.textContent = "Read";
   } else {
     bookRead.textContent = "Unread";
-    bookRead.style.backgroundColor = "red";
+    bookRead.style.backgroundColor = "rgb(255, 70, 70)";
   }
 
   card.appendChild(cardHeader);
@@ -89,11 +89,11 @@ function createBookCard() {
 
     if(bookRead.textContent == "Read") {
       bookRead.textContent = "Unread";
-      bookRead.style.backgroundColor = "red";
+      bookRead.style.backgroundColor = "rgb(255, 70, 70)";
       myLibrary[parentNumber].read = false;
     } else {
       bookRead.textContent = "Read";
-      bookRead.style.backgroundColor = "green";
+      bookRead.style.backgroundColor = "rgb(42, 161, 42)";
       myLibrary[parentNumber].read = true;
     }
   });

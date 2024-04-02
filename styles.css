@@ -111,14 +111,14 @@ label {
 }
 
 .bookRead {
-  background-color: green;
+  background-color: rgb(42, 161, 42);
   color: white;
   border: 0px;
   margin-right: 10px;
 }
 
 .bookRead:hover {
-  background-color:rgb(48, 159, 48);
+  background-color:rgb(42, 161, 42);
   border: 0px;
 }
 
