@@ -45,15 +45,16 @@ function handleConfirm() {
   createBookCard();
 }
 
+let booksInArray = 0;
+
 function createBookCard() {
-  let booksInArray = 0;
 
   const card = document.createElement("div");
   const cardHeader = document.createElement("h2");
   const cardAuthorName = document.createElement("p");
   const cardPages = document.createElement("p");
   const deleteCardButton = document.createElement("button");
-  const bookRead = document.createElement("button");
+  bookRead = document.createElement("button");
 
   card.classList.add("card");
   bookRead.classList.add("bookRead");
@@ -77,8 +78,19 @@ function createBookCard() {
   card.appendChild(cardPages);
   card.appendChild(bookRead);
   card.appendChild(deleteCardButton);
- 
   libraryWindow.appendChild(card);
+
+  card.setAttribute("data-number", booksInArray);
   booksInArray++;
+
+  bookRead.addEventListener("click", () => {
+    const parent = bookRead.parentNode;
+    let parentNumber = parent.dataset.number;
+  });
+  
+  deleteCardButton.addEventListener("click", () => {
+    const parent = deleteCardButton.parentNode;
+    parent.parentNode.removeChild(parent);
+  });
 
 }
