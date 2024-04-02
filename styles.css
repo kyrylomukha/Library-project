@@ -17,6 +17,20 @@ section {
   align-items: center;
 }
 
+.library {
+ display: grid;
+ grid-template-columns: repeat(3,1fr);
+ gap: 20px;
+}
+
+.card {
+ background-color: rgb(255, 255, 255);
+ border: 2px solid black;
+ border-radius: 10px;
+ height: 200px;
+ padding: 20px;
+}
+
 h1 {
   font-size: 36px;
 }
@@ -39,19 +53,19 @@ button:hover {
   border: 2px solid black;
 }
 
-.library {
- display: grid;
- grid-template-columns: repeat(3,1fr);
- gap: 20px;
+.bookRead {
+  background-color: rgb(42, 161, 42);
+  color: white;
+  border: 0px;
+  margin-right: 10px;
 }
 
-.card {
- background-color: rgb(255, 255, 255);
- border: 2px solid black;
- border-radius: 10px;
- height: 200px;
- padding: 20px;
+.bookRead:hover {
+  background-color:rgb(42, 161, 42);
+  border: 0px;
 }
+
+/* Styling of the dialog window */
 
 ::backdrop {
   backdrop-filter: blur(10px);
@@ -108,18 +122,6 @@ label {
 .white-button:hover {
   background-color: black;
   color: white;
-}
-
-.bookRead {
-  background-color: rgb(42, 161, 42);
-  color: white;
-  border: 0px;
-  margin-right: 10px;
-}
-
-.bookRead:hover {
-  background-color:rgb(42, 161, 42);
-  border: 0px;
 }
 
 .close {
