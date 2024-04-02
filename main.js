@@ -90,7 +90,21 @@ function createBookCard() {
   
   deleteCardButton.addEventListener("click", () => {
     const parent = deleteCardButton.parentNode;
+    let parentNumber = parent.dataset.number;
+
     parent.parentNode.removeChild(parent);
+    myLibrary.splice(parentNumber, 1);
+
+    updateDataNums(parentNumber);
   });
+
+  function updateDataNums(num) {
+    let cards = document.querySelectorAll(".card");
+    for(let card of cards) {
+      if(card.dataset.number > num) {
+        card.dataset.number--;
+      }
+    }
+  }
 
 }
